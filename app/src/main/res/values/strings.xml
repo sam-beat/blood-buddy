@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Blood Buddy</string>
+    <string name="verify"  >Verify</string>
+    <string name="verify_otp">Verify</string>
 </resources>
