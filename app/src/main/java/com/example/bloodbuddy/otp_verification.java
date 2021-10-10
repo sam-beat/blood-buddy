@@ -21,35 +21,36 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 public class otp_verification extends AppCompatActivity {
 
-    EditText otp;
-    TextView resendotp = findViewById(R.id.resendotp);
-    final Button verifyOtp =  findViewById(R.id.idverifyotpbutton);;
-   final ProgressBar progressBar = findViewById(R.id.idprogressbar_otp);
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp_verification);
-        otp = findViewById(R.id.idotp);
+       EditText otp = findViewById(R.id.idotp);
 
+        final Button verifyOtp =  findViewById(R.id.idverifyotpbutton);;
+        final ProgressBar progressBar = findViewById(R.id.idprogressbar_otp);
 
-        String firebaseotp = getIntent().getStringExtra("otp");
+        String phoneno = getIntent().getStringExtra("mobileno");
         verifyOtp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String OTP = otp.getText().toString().trim();
                 if (!(otp.getText().toString().trim().isEmpty())) {
 
+                    String firebaseotp = getIntent().getStringExtra("otp");
 
                     if(firebaseotp != null){
-                        progressBar.setVisibility(view.VISIBLE);
-                        verifyOtp.setVisibility(view.INVISIBLE);
+                        progressBar.setVisibility(View.VISIBLE);
+                        verifyOtp.setVisibility(View.INVISIBLE);
                         PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.getCredential(firebaseotp,OTP);
                         FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
 
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                           progressBar.setVisibility(view.GONE);
-                           verifyOtp.setVisibility(view.VISIBLE);
+                           progressBar.setVisibility(View.GONE);
+                           verifyOtp.setVisibility(View.VISIBLE);
 
                            if(task.isSuccessful()){
                                Intent i = new Intent(getApplicationContext(),MainActivity.class);
@@ -63,23 +64,24 @@ public class otp_verification extends AppCompatActivity {
                         });
                     }
                     else{
-                        Toast.makeText(otp_verification.this,"Ehter correct OTP",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(otp_verification.this,"Enter correct OTP",Toast.LENGTH_SHORT).show();
 
                     }
 
 
                 } else {
-                    Toast.makeText(otp_verification.this,"OTP verified Successfully",Toast.LENGTH_SHORT);
+                    Toast.makeText(otp_verification.this,"Enter OTP Successfully",Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        resendotp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
 
     }
+
+
+
+
+
+
 }
