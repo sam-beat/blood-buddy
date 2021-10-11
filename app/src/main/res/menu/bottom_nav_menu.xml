@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_donate_blood_i"
+        android:title="@string/title_donate_blood" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/ic_blood_request"
+        android:title="@string/title_request_blood" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/ic_request_status"
+        android:title="@string/title_status" />
+
+</menu>
