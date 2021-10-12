@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Blood Buddy</string>
-    <string name="verify"  >Verify</string>
+    <string name="verify">Verify</string>
     <string name="verify_otp">Verify</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="title_donate_blood">Donate Blood</string>
+    <string name="title_request_blood">Request Blood</string>
+    <string name="title_status">Request Status</string>
 </resources>
